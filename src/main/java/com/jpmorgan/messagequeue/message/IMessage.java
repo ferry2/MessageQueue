@@ -7,4 +7,6 @@ public interface IMessage {
 	public String getMessageText();
 	
 	public void completed();
+	
+	public boolean isComplete();
 }

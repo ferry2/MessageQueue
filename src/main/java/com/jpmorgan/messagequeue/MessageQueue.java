@@ -45,13 +45,11 @@ public class MessageQueue {
 			while (messageQueue.isEmpty()) {
 				wait();
 			}
-			//messageQueue.remove();
-			Iterator<IMessage> messageIterator = messageQueue.iterator();
 			
+			Iterator<IMessage> messageIterator = messageQueue.iterator();
 			while (messageIterator.hasNext()) {
-				IMessage message = (IMessage) messageIterator.next();
+				IMessage message = messageIterator.next();
 				gateway.send(message);
-				message.completed();
 				messageIterator.remove();
 			}
 			

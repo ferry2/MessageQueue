@@ -11,6 +11,7 @@ public class Gateway implements IGateway {
 	}
 	
 	public void send(IMessage message) {
+		message.completed();
 		Logger.getLogger(Gateway.class).debug(String.format("Sended message: %s from group %d", message.getMessageText(), message.groupId()));
 	}
 }
